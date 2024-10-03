@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Khodam Abal Abalan</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FF9D6C 0%, #BB4E75 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #6D214F;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        input[type="text"] {
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #6D214F;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6D214F;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5A1A3F;
+        }
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #FFF5E6;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            display: none;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            input[type="text"], button {
+                font-size: 16px;
+            }
+            #result {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cek Khodam Abal Abalan</h1>
+        <input type="text" id="nama" placeholder="Masukkan nama Anda">
+        <button onclick="cekKhodam()">Cek Khodam</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const khodamList = [
+            "Khodam Indomie", "Khodam Lutung", "Khodam Raja Hitam",
+            "Khodam Raja Putih", "Khodam Upin Ipin", "Kosong",
+            "Khodam Raja Bokep", "Khodam Kepiting Kikir", "Khodam Boboiboy Kuasa 3",
+            "Khodam Angga Pramudji", "Khodam Bunga Anggrek Pontianak", "Khodam Peler",
+            "Khodam Sosok Kiris", "Khodam Mahkotamu King", "Khodam Asikin Aja Le",
+            "Khodam Mas Rusdi", "Khodam Ambatron", "Khodam Sosok Hitam",
+            "Khodam Tol Aspal Cipularang", "Khodam SiHitam", "Khodam Manusia Silver",
+            "Khodam Panglima Bokep", "Khodam Raja Furry", "Khodam Pengedar Bokep",
+            "Khodam Raja Mewing", "Khodam Maha Hitam dan Maha Bokep", "Khodam Rehan Wangsapp",
+            "Khodam El Penis", "Khodam El Kontol", "Khodam Siimut"
+        ];
+
+        function cekKhodam() {
+            const nama = document.getElementById('nama').value.trim();
+            const result = document.getElementById('result');
+
+            if (nama === "") {
+                alert("Mohon masukkan nama Anda!");
+                return;
+            }
+
+            const randomKhodam = khodamList[Math.floor(Math.random() * khodamList.length)];
+            result.innerHTML = `Halo ${nama}!<br>Khodam Anda adalah:<br><span style="color: #6D214F; font-size: 24px;">${randomKhodam}</span>`;
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
